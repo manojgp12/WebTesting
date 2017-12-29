@@ -1,0 +1,10 @@
+package performclickoperationson_newtours_and_geturl_gettitle;
+
+public class Linkstesting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

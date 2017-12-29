@@ -1,0 +1,53 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.server.browserlaunchers.Sleeper;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Userregister_using_TestNG 
+{
+	
+	FirefoxDriver driver;
+	
+	@BeforeTest
+	public void setup()
+	{
+		driver = new FirefoxDriver();
+		driver.get("http://www.newtours.demoaut.com");
+		
+    }
+	
+	@Test(priority=1)
+	public void Register()
+	{
+		driver.findElement(By.linkText("REGISTER")).click();
+	}
+	
+	@Test(priority=2)
+	public void newuserregister()
+	{
+		driver.findElement(By.name("firstName")).sendKeys("manoj");
+		driver.findElement(By.name("lastName")).sendKeys("kumar");
+		driver.findElement(By.name("phone")).sendKeys("8019452617");
+		driver.findElement(By.name("userName")).sendKeys("manojgp12@gmail.com");
+		driver.findElement(By.name("address1")).sendKeys("gangupalli(vill),sathambakam(post),chittoor,AP.");
+		driver.findElement(By.name("city")).sendKeys("Chittoor");
+		driver.findElement(By.name("state")).sendKeys("Andhrapradesh");
+		driver.findElement(By.name("postalCode")).sendKeys("517127");
+		driver.findElement(By.name("country")).sendKeys("INDIA");
+		driver.findElement(By.id("email")).sendKeys("manojgp12");
+		driver.findElement(By.name("password")).sendKeys("manojgp12");
+		driver.findElement(By.name("confirmPassword")).sendKeys("manojgp12");
+		
+		Sleeper.sleepTightInSeconds(10);
+		driver.findElement(By.name("register")).click();
+		
+	}
+	@AfterTest
+	public void teardown()
+	{
+		driver.close();
+	}
+
+}

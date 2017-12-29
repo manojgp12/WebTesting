@@ -1,0 +1,82 @@
+package com.verifyinglinksurls;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Verify_Urls 
+{
+	FirefoxDriver driver;
+	@BeforeTest
+	public void setup() 
+	{
+		driver = new FirefoxDriver();
+		driver.get("http://www.newtours.demoaut.com");
+		
+	}
+	@Test
+	public void verifyurl() throws IOException
+	{
+		FileInputStream file = new FileInputStream("C:\\Users\\Hemanth\\Desktop\\manojtestdata.xlsx");
+		XSSFWorkbook workbook = new XSSFWorkbook(file);
+		XSSFSheet sheet = workbook.getSheet("sheet2");
+		 int rowCount=sheet.getLastRowNum();
+		 for(int a=1;a<=rowCount;a++)
+		 {	
+		
+			 Row r=sheet.getRow(a);
+			 driver.get(r.getCell(1).getStringCellValue());
+			 driver.get(r.getCell(1).getStringCellValue());
+			 driver.get(r.getCell(1).getStringCellValue());
+			 driver.get(r.getCell(1).getStringCellValue());
+			 driver.get(r.getCell(1).getStringCellValue());
+			 driver.get(r.getCell(1).getStringCellValue());
+			 driver.get(r.getCell(1).getStringCellValue());
+			 driver.get(r.getCell(1).getStringCellValue());
+			 driver.get(r.getCell(1).getStringCellValue());
+			 driver.get(r.getCell(1).getStringCellValue());
+			 driver.get(r.getCell(1).getStringCellValue()); 
+			 driver.get(r.getCell(1).getStringCellValue());
+			 driver.get(r.getCell(1).getStringCellValue());
+			 driver.get(r.getCell(1).getStringCellValue());
+			 driver.get(r.getCell(1).getStringCellValue());
+			 
+			 String Expectedurl=r.getCell(1).getStringCellValue();
+			 
+			String ActualText = driver.getCurrentUrl();
+			
+			if(ActualText.contains(Expectedurl))
+				
+			{
+				System.out.println("pass");
+				r.createCell(3).setCellValue("pass");
+			}
+			else
+			{
+				System.out.println("fail");
+				r.createCell(3).setCellValue("fail");
+			}
+			
+			FileOutputStream file1 = new FileOutputStream("C:\\Users\\Hemanth\\Desktop\\Automation practice\\web browser automation\\src\\registrationtestresults.xlsx");
+			workbook.write(file1);
+		 }
+		
+
+		
+	}
+	@AfterTest
+	public void teardown()
+	{
+		driver.close();
+	}
+
+}

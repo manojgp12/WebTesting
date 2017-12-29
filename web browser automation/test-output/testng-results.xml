@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="2" failed="0" total="2" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Grid Testing" duration-ms="28" started-at="2017-12-29T06:36:23Z" finished-at="2017-12-29T06:36:23Z">
+    <groups>
+    </groups>
+    <test name="on chrome" duration-ms="28" started-at="2017-12-29T06:36:23Z" finished-at="2017-12-29T06:36:23Z">
+      <class name="com.GRID.NewToursLogInTest">
+        <test-method status="SKIP" signature="LogIn(javax.print.DocFlavor$STRING)[pri:0, instance:com.GRID.NewToursLogInTest@1753acfe]" name="LogIn" duration-ms="0" started-at="2017-12-29T12:06:23Z" finished-at="2017-12-29T12:06:23Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Parameter 'browsers' is required by @Test on method LogIn but has not been marked @Optional or defined
+in C:\Users\Hemanth\Desktop\Automation practice\web browser automation\Grid.xml]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'browsers' is required by @Test on method LogIn but has not been marked @Optional or defined
+in C:\Users\Hemanth\Desktop\Automation practice\web browser automation\Grid.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:154)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:361)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:451)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1270)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:985)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1075)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:393)
+	at org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LogIn -->
+      </class> <!-- com.GRID.NewToursLogInTest -->
+    </test> <!-- on chrome -->
+    <test name="on Firefox" duration-ms="28" started-at="2017-12-29T06:36:23Z" finished-at="2017-12-29T06:36:23Z">
+      <class name="com.GRID.NewToursLogInTest">
+        <test-method status="SKIP" signature="LogIn(javax.print.DocFlavor$STRING)[pri:0, instance:com.GRID.NewToursLogInTest@5f375618]" name="LogIn" duration-ms="0" started-at="2017-12-29T12:06:23Z" finished-at="2017-12-29T12:06:23Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Parameter 'browsers' is required by @Test on method LogIn but has not been marked @Optional or defined
+in C:\Users\Hemanth\Desktop\Automation practice\web browser automation\Grid.xml]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'browsers' is required by @Test on method LogIn but has not been marked @Optional or defined
+in C:\Users\Hemanth\Desktop\Automation practice\web browser automation\Grid.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:154)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:361)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:451)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1270)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:985)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1075)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:393)
+	at org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LogIn -->
+      </class> <!-- com.GRID.NewToursLogInTest -->
+    </test> <!-- on Firefox -->
+  </suite> <!-- Grid Testing -->
+</testng-results>

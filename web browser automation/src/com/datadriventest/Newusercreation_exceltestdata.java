@@ -1,0 +1,99 @@
+package com.datadriventest;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.server.browserlaunchers.Sleeper;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Newusercreation_exceltestdata 
+{
+	FirefoxDriver driver;
+	@BeforeTest 
+	public void setup()
+	{
+		driver =new FirefoxDriver();
+		driver.get("http://newtours.demoaut.com");
+		
+	}
+	@Test(priority=1)
+	public void register()
+	{
+		driver.findElement(By.linkText("REGISTER")).click();
+		
+	}
+	@Test(priority=2)
+	public void newuserregister() throws IOException
+	{
+		FileInputStream file = new FileInputStream("C:\\Users\\Hemanth\\Desktop\\Automation practice\\web browser automation\\src\\testdatafiles\\RegitrationTestData.xlsx");
+		XSSFWorkbook workBook = new XSSFWorkbook(file);
+		XSSFSheet sheet = workBook.getSheet("Sheet1");
+		int rowcount=sheet.getLastRowNum();
+		for (int i=1;i<rowcount;i++)
+		{
+			Row r= sheet.getRow(i);
+			driver.findElement(By.name("firstName")).sendKeys(r.getCell(0).getStringCellValue());
+			driver.findElement(By.name("lastName")).sendKeys(r.getCell(1).getStringCellValue());
+			
+			double d=r.getCell(2).getNumericCellValue();
+			long x =(long)d;
+			String PhoneNumber=Long.toString(x);
+			driver.findElement(By.name("phone")).sendKeys(PhoneNumber);	
+			driver.findElement(By.id("userName")).sendKeys(r.getCell(3).getStringCellValue());
+			driver.findElement(By.name("address1")).sendKeys(r.getCell(4).getStringCellValue());
+			driver.findElement(By.name("city")).sendKeys(r.getCell(5).getStringCellValue());
+			driver.findElement(By.name("state")).sendKeys(r.getCell(6).getStringCellValue());
+			
+			
+			double k=r.getCell(7).getNumericCellValue();
+			long y =(long)k;
+			String postalcode=Long.toString(y);
+					
+			driver.findElement(By.name("postalCode")).sendKeys(postalcode);
+			driver.findElement(By.name("country")).sendKeys(r.getCell(8).getStringCellValue());
+			driver.findElement(By.id("email")).sendKeys(r.getCell(9).getStringCellValue());
+			driver.findElement(By.name("password")).sendKeys(r.getCell(10).getStringCellValue());
+			driver.findElement(By.name("confirmPassword")).sendKeys(r.getCell(11).getStringCellValue());
+			
+
+			Sleeper.sleepTightInSeconds(10);
+			
+			driver.findElement(By.name("register")).click();
+			
+			String Expectedusername=r.getCell(9).getStringCellValue();
+			String ActualText=driver.findElement(By.xpath("html/body/div[1]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[3]/td/p[3]/a/font/b")).getText();
+			if(ActualText.contains(Expectedusername))
+			{
+				System.out.println("User created Successfully -- PASS");
+				r.createCell(12).setCellValue("User registration passed -- PASS");
+				
+			}
+			else
+			{
+				System.out.println("User created Successfully -- FAIL");
+				r.createCell(12).setCellValue("User registration Failed -- FAIL");
+			}
+			FileOutputStream file1 = new FileOutputStream("C:\\Users\\Hemanth\\Desktop\\Automation practice\\web browser automation\\src\\registrationtestresults\\testresults.xlsx");
+			workBook.write(file1);
+			driver.navigate().back();
+			
+		}
+		
+	}
+
+	@AfterTest
+	public void tearDown()
+	{
+		driver.close();
+	}
+
+}
